@@ -3,34 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Fruitables Grocery</title>
+    <title>Cart - Fruitables Grocery</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body data-page="contact">
+<body data-page="cart">
     <header class="site-header">
         <div class="topbar"><div class="topbar-left"><span><span class="top-icon">●</span>123 Street, New York</span><span><span class="top-icon">✉</span>Email@Example.com</span></div><div class="topbar-links"><a href="contact.html">Privacy Policy</a><span>/</span><a href="contact.html">Terms of Use</a><span>/</span><a href="deals.html">Sales and Refunds</a></div></div>
         <nav class="navbar">
             <a href="index.html" class="brand">Fruitables</a><button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
             <div class="nav-panel" id="navPanel"><a href="index.html" data-nav="home">Home</a><a href="category.html" data-nav="category">Category</a><div class="dropdown"><button class="dropdown-toggle" type="button" data-nav="products">Products <span>⌄</span></button><div class="dropdown-menu"><a href="fruits.html" data-nav="fruits">Fruits</a><a href="vegetables.html" data-nav="vegetables">Vegetables</a></div></div><a href="deals.html" data-nav="deals">Deals</a><a href="contact.html" data-nav="contact">Contact</a></div>
-            <div class="nav-actions"><button class="icon-button search-toggle" type="button" aria-label="Open search">⌕</button><a class="icon-button cart-button" href="index.html#cartSummary" aria-label="View cart"><span class="cart-icon">▣</span><strong id="cartCount">0</strong></a><button class="icon-button theme-toggle" type="button" aria-label="Switch to dark theme"><span class="theme-icon">D</span></button><a class="icon-button user-button" href="contact.html" aria-label="Account">●</a></div>
+            <div class="nav-actions"><button class="icon-button search-toggle" type="button" aria-label="Open search">⌕</button><a class="icon-button cart-button" href="cart.html" aria-label="View cart"><span class="cart-icon">▣</span><strong id="cartCount">0</strong></a><button class="icon-button theme-toggle" type="button" aria-label="Switch to dark theme"><span class="theme-icon">D</span></button><a class="icon-button user-button" href="contact.html" aria-label="Account">●</a></div>
         </nav>
-        <form class="header-search" id="headerSearch"><input id="siteSearch" type="search" placeholder="Search before contacting us" aria-label="Search before contacting us"><button type="submit">Search</button></form>
+        <form class="header-search" id="headerSearch"><input id="siteSearch" type="search" placeholder="Search fruits, vegetables, deals" aria-label="Search grocery items"><button type="submit">Search</button></form>
     </header>
     <main>
-        <section class="page-hero reveal"><p class="eyebrow">Need help?</p><h1>Contact Fruitables</h1><p>Visit the store, ask about delivery or send a grocery request.</p></section>
-        <section class="section contact-section">
-            <div class="contact-grid">
-                <article class="contact-card reveal"><h3>Store Hours</h3><p>Mon-Sat: 7:00 AM - 9:00 PM</p><p>Sunday: 8:00 AM - 6:00 PM</p></article>
-                <article class="contact-card reveal"><h3>Delivery Area</h3><p>Local same-day delivery within 8 miles.</p><p>Call: +1 555 013 2480</p></article>
-                <form class="contact-card contact-form reveal"><input type="text" placeholder="Your name" aria-label="Your name"><input type="email" placeholder="Email address" aria-label="Email address"><textarea placeholder="What do you need?" aria-label="Message"></textarea><button type="submit">Send Message</button></form>
-            </div>
-            <div class="map-card reveal">
-                <div>
-                    <p class="eyebrow">Find us</p>
-                    <h2>Fruitables store map</h2>
-                    <p>123 Street, New York. Visit us for fresh grocery pickup and local delivery support.</p>
+        <section class="page-hero reveal"><p class="eyebrow">Your cart</p><h1>Shopping cart</h1><p>Review your total items, shopping total and payment method before checkout.</p></section>
+        <section class="deal-band cart-page-section" id="cartSummary">
+            <div class="deal-content reveal">
+                <p class="eyebrow">Shopping summary</p>
+                <h2 id="cartMessage">Your basket is ready for fresh picks.</h2>
+                <div class="cart-overview">
+                    <div><span>Total items</span><strong id="cartTotalItems">0</strong></div>
+                    <div><span>Shopping total</span><strong id="cartTotalPrice">$0.00</strong></div>
+                    <div><span>Delivery</span><strong>Free</strong></div>
                 </div>
-                <iframe title="Fruitables location map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.openstreetmap.org/export/embed.html?bbox=-74.012%2C40.704%2C-73.992%2C40.724&layer=mapnik&marker=40.714%2C-74.002"></iframe>
+                <button class="primary-button" type="button" id="clearCart">Clear Cart</button>
+            </div>
+            <div class="payment-card reveal">
+                <p class="eyebrow">Payment methods</p>
+                <h3>Choose payment method</h3>
+                <label><input type="radio" name="payment" checked> Cash on delivery</label>
+                <label><input type="radio" name="payment"> Credit or debit card</label>
+                <label><input type="radio" name="payment"> UPI / wallet payment</label>
+                <div class="payment-fields">
+                    <input type="text" placeholder="Card or UPI number" aria-label="Card or UPI number">
+                    <input type="text" placeholder="Name on payment" aria-label="Name on payment">
+                </div>
+                <button class="primary-button" type="button">Checkout</button>
             </div>
         </section>
     </main>
