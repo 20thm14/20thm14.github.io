@@ -10,6 +10,8 @@ const headerSearch = document.querySelector("#headerSearch");
 const siteSearch = document.querySelector("#siteSearch");
 const cartCount = document.querySelector("#cartCount");
 const cartMessage = document.querySelector("#cartMessage");
+const cartTotalItems = document.querySelector("#cartTotalItems");
+const cartTotalPrice = document.querySelector("#cartTotalPrice");
 const clearCart = document.querySelector("#clearCart");
 const revealItems = document.querySelectorAll(".reveal");
 const slides = document.querySelectorAll(".slide");
@@ -41,6 +43,14 @@ function setTheme(theme) {
 function updateCart() {
     if (cartCount) {
         cartCount.textContent = cartTotal;
+    }
+
+    if (cartTotalItems) {
+        cartTotalItems.textContent = cartTotal;
+    }
+
+    if (cartTotalPrice) {
+        cartTotalPrice.textContent = `$${(cartTotal * 4.99).toFixed(2)}`;
     }
 
     if (cartMessage) {
@@ -174,6 +184,14 @@ document.querySelector(".contact-form")?.addEventListener("submit", (event) => {
     event.preventDefault();
     event.currentTarget.reset();
     alert("Thanks! Fruitables will contact you soon.");
+});
+
+document.querySelectorAll(".feedback-form").forEach((form) => {
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        form.reset();
+        alert("Thanks for your feedback!");
+    });
 });
 
 const observer = new IntersectionObserver((entries) => {

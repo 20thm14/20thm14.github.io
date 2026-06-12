@@ -5,13 +5,13 @@
     --surface-strong: #eef8df;
     --text: #24342c;
     --muted: #68766f;
-    --primary: #75c900;
-    --primary-dark: #59aa00;
+    --primary: #ff4500;
+    --primary-dark: #d83a00;
     --accent: #ffb52e;
     --accent-two: #f45b69;
     --stroke: rgba(36, 52, 44, 0.13);
-    --shadow: 0 22px 55px rgba(55, 121, 23, 0.16);
-    --shadow-soft: 0 12px 30px rgba(55, 121, 23, 0.1);
+    --shadow: 0 22px 55px rgba(255, 69, 0, 0.16);
+    --shadow-soft: 0 12px 30px rgba(255, 69, 0, 0.1);
     --radius: 8px;
 }
 
@@ -22,8 +22,8 @@ body.dark-theme {
     --surface-strong: #213329;
     --text: #f4fff7;
     --muted: #aab8af;
-    --primary: #91e833;
-    --primary-dark: #79cf1c;
+    --primary: #ff4500;
+    --primary-dark: #ff6a33;
     --accent: #ffd166;
     --accent-two: #ff7a8a;
     --stroke: rgba(244, 255, 247, 0.15);
@@ -115,7 +115,7 @@ img {
     border-radius: 0 0 28px 28px;
     background: var(--primary);
     color: #ffffff;
-    box-shadow: 0 16px 35px rgba(117, 201, 0, 0.24);
+    box-shadow: 0 16px 35px rgba(255, 69, 0, 0.24);
     font-size: 0.98rem;
     font-weight: 700;
 }
@@ -405,7 +405,7 @@ img {
 .contact-form button {
     background: linear-gradient(135deg, var(--primary), var(--accent));
     color: #101600;
-    box-shadow: 0 15px 34px rgba(117, 201, 0, 0.24);
+    box-shadow: 0 15px 34px rgba(255, 69, 0, 0.24);
 }
 
 .ghost-button {
@@ -557,7 +557,7 @@ img {
 
 .slide-arrow:hover {
     transform: translateY(-50%) scale(1.06);
-    background: rgba(117, 201, 0, 0.45);
+    background: rgba(255, 69, 0, 0.45);
 }
 
 .slide-prev {
@@ -669,7 +669,7 @@ img {
     background: linear-gradient(135deg, var(--primary), var(--accent));
     color: #101600;
     font-weight: 900;
-    box-shadow: 0 8px 22px rgba(117, 201, 0, 0.25);
+    box-shadow: 0 8px 22px rgba(255, 69, 0, 0.25);
 }
 
 .service-strip h2,
@@ -751,6 +751,8 @@ img {
 .product-card {
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
     transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
@@ -785,6 +787,9 @@ img {
 }
 
 .product-info {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
     padding: 18px;
 }
 
@@ -794,16 +799,21 @@ img {
 
 .product-bottom {
     justify-content: space-between;
+    align-items: center;
     gap: 12px;
-    margin-top: 18px;
+    margin-top: auto;
+    padding-top: 18px;
 }
 
 .product-bottom strong {
+    min-width: 82px;
     color: var(--primary-dark);
     font-size: 1.25rem;
 }
 
 .product-card button {
+    width: 108px;
+    flex: 0 0 108px;
     min-height: 42px;
     padding-inline: 18px;
 }
@@ -824,7 +834,7 @@ img {
 
 .deal-band {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(260px, 0.78fr);
+    grid-template-columns: minmax(0, 0.92fr) minmax(320px, 1.08fr);
     align-items: center;
     gap: 28px;
     padding-block: 42px;
@@ -839,6 +849,34 @@ img {
     max-width: 560px;
 }
 
+.cart-overview {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin: 22px 0;
+}
+
+.cart-overview div {
+    padding: 16px;
+    border: 1px solid var(--stroke);
+    border-radius: var(--radius);
+    background: color-mix(in srgb, var(--surface) 82%, transparent);
+    box-shadow: var(--shadow-soft);
+}
+
+.cart-overview span {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--muted);
+    font-weight: 800;
+}
+
+.cart-overview strong {
+    display: block;
+    color: var(--primary-dark);
+    font-size: clamp(1.35rem, 3vw, 2rem);
+}
+
 .deal-image {
     width: 100%;
     min-height: 260px;
@@ -846,6 +884,68 @@ img {
     border-radius: var(--radius);
     border: 1px solid var(--stroke);
     box-shadow: var(--shadow-soft);
+}
+
+.payment-card {
+    display: grid;
+    gap: 14px;
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 24px;
+    border: 1px solid var(--stroke);
+    border-radius: var(--radius);
+    background: var(--surface);
+    box-shadow: var(--shadow-soft);
+}
+
+.payment-card h3 {
+    margin: 0;
+    font-size: 1.35rem;
+    overflow-wrap: anywhere;
+}
+
+.payment-card label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    color: var(--muted);
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+
+.payment-card input[type="radio"] {
+    accent-color: var(--primary);
+}
+
+.payment-fields {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    min-width: 0;
+}
+
+.payment-fields input {
+    width: 100%;
+    min-width: 0;
+    min-height: 46px;
+    border: 1px solid var(--stroke);
+    border-radius: var(--radius);
+    padding: 0 14px;
+    background: var(--surface-strong);
+    color: var(--text);
+    outline: none;
+}
+
+.payment-card .primary-button {
+    width: 100%;
+    min-width: 0;
+}
+
+.payment-fields input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 18%, transparent);
 }
 
 .contact-grid {
@@ -880,6 +980,99 @@ img {
 
 .contact-form button {
     border: 0;
+}
+
+.feedback-section {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(280px, 1.1fr);
+    gap: 24px;
+    align-items: start;
+    max-width: 1180px;
+    margin: 0 auto 34px;
+    padding: 32px clamp(16px, 4vw, 48px);
+    border: 1px solid var(--stroke);
+    border-radius: var(--radius);
+    background:
+        linear-gradient(135deg, color-mix(in srgb, var(--primary) 12%, transparent), transparent),
+        color-mix(in srgb, var(--surface) 92%, transparent);
+    box-shadow: var(--shadow-soft);
+}
+
+.feedback-section h2 {
+    margin: 0 0 12px;
+    font-size: clamp(1.9rem, 4vw, 3.1rem);
+    line-height: 1.08;
+}
+
+.feedback-section p {
+    color: var(--muted);
+    line-height: 1.65;
+}
+
+.feedback-form {
+    display: grid;
+    gap: 12px;
+}
+
+.feedback-form textarea {
+    width: 100%;
+    border: 1px solid var(--stroke);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    background: var(--surface-strong);
+    color: var(--text);
+    outline: none;
+}
+
+.feedback-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.feedback-form textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 18%, transparent);
+}
+
+.feedback-form button {
+    min-height: 48px;
+    border: 0;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: #101600;
+    cursor: pointer;
+    font-weight: 900;
+    box-shadow: 0 15px 34px rgba(255, 69, 0, 0.24);
+}
+
+.map-card {
+    display: grid;
+    grid-template-columns: 0.72fr 1.28fr;
+    gap: 22px;
+    margin-top: 22px;
+    padding: 22px;
+    border: 1px solid var(--stroke);
+    border-radius: var(--radius);
+    background: color-mix(in srgb, var(--surface) 90%, transparent);
+    box-shadow: var(--shadow-soft);
+}
+
+.map-card h2 {
+    margin: 0 0 12px;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+}
+
+.map-card p {
+    color: var(--muted);
+    line-height: 1.65;
+}
+
+.map-card iframe {
+    width: 100%;
+    min-height: 320px;
+    border: 1px solid var(--stroke);
+    border-radius: var(--radius);
+    background: var(--surface-strong);
 }
 
 .footer {
@@ -1023,6 +1216,14 @@ img {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .map-card {
+        grid-template-columns: 1fr;
+    }
+
+    .feedback-section {
+        grid-template-columns: 1fr;
+    }
+
     .section-heading {
         align-items: start;
         flex-direction: column;
@@ -1066,6 +1267,14 @@ img {
     .deal-band {
         margin-inline: clamp(16px, 4vw, 48px);
     }
+
+    .payment-fields {
+        grid-template-columns: 1fr;
+    }
+
+    .cart-overview {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 680px) {
@@ -1088,9 +1297,9 @@ img {
 
     .icon-button,
     .nav-toggle {
-        width: 44px;
-        height: 44px;
-        font-size: 1.1rem;
+        width: 38px;
+        height: 38px;
+        font-size: 0.98rem;
     }
 
     .user-button {
@@ -1140,6 +1349,10 @@ img {
     .product-grid,
     .contact-grid,
     .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .payment-fields {
         grid-template-columns: 1fr;
     }
 
@@ -1200,6 +1413,7 @@ img {
 
     .product-card button {
         width: 100%;
+        flex-basis: auto;
     }
 
     .footer-grid {
@@ -1214,8 +1428,8 @@ img {
 
     .icon-button,
     .nav-toggle {
-        width: 40px;
-        height: 40px;
+        width: 34px;
+        height: 34px;
     }
 
     .cart-button strong {
